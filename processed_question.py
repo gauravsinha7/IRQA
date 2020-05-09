@@ -1,3 +1,24 @@
+# Description : Takes question as an input and process it to find out question
+#   and answer type, also prepare question vector and prepare search query for
+#   Information Retrieval process
+# Arguments :
+#       Input :
+#           question(str) : String of question
+#           useStemmer(boolean) : Indicate to use stemmer for question tokens
+#           useSynonyms(boolean) : Indicate to use thesaraus for query expansion
+#           removeStopwords(boolean) : Indicate to remove stop words from search
+#                                      query
+#       Output :
+#           Instance of ProcessedQuestion with useful following structure
+#               qVector(dict) : Key Value pair of word and its frequency
+#                               to be used for Information Retrieval and
+#                               similarity calculation
+#               question(str) : Raw question
+#               qType(str) : Type of question
+#               aType(str) : Expected answer type
+#                       ["PERSON","LOCATION","DATE","DEFINITION","YESNO"]
+#
+
 
 from nltk import pos_tag,word_tokenize,ne_chunk
 from nltk.stem.porter import PorterStemmer
@@ -19,6 +40,21 @@ class ProcessedQuestion:
         self.qVector = self.getQueryVector(self.searchQuery)
         self.aType = self.determineAnswerType(question)
 
+    # To determine type of question by analyzing POS tag of question from Penn
+    # Treebank tagset
+    #
+    # Input:
+    #           question(str) : Question string
+    # Output:
+    #           qType(str) : Type of question among following
+    #                   [ WP ->  who
+    #                     WDT -> what, why, how
+    #                     WP$ -> whose
+    #                     WRB -> where ]
+
+
+
+
     def determineQuestionType(self, question):
         questionTaggers = ['WP','WDT','WP$','WRB']
         qPOS = pos_tag(word_tokenize(question))
@@ -34,6 +70,15 @@ class ProcessedQuestion:
         else:
             qType = "None"
         return qType
+
+    # To determine type of expected answer depending of question type
+    #
+    # Input:
+    #           question(str) : Question string
+    # Output:
+    #           aType(str) : Type of answer among following
+    #               [PERSON, LOCATION, DATE, ORGANIZATION, QUANTITY, DEFINITION
+    #                   FULL]
 
     def determineAnswerType(self, question):
         questionTaggers = ['WP','WDT','WP$','WRB']
@@ -89,6 +134,13 @@ class ProcessedQuestion:
         else:
             return "FULL"
 
+    # To build search query by dropping question word
+    #
+    # Input:
+    #           question(str) : Question string
+    # Output:
+    #           searchQuery(list) : List of tokens
+
     def buildSearchQuery(self, question):
         qPOS = pos_tag(word_tokenize(question))
         searchQuery = []
@@ -104,6 +156,14 @@ class ProcessedQuestion:
                         searchQuery.extend(syn)
         return searchQuery
 
+    # To build query vector
+    #
+    # Input:
+    #       searchQuery(list) : List of tokens from buildSearchQuery method
+    # Output:
+    #       qVector(dict) : Dictionary of words and their frequency
+
+
     def getQueryVector(self, searchQuery):
         vector = {}
         for token in searchQuery:
@@ -116,6 +176,16 @@ class ProcessedQuestion:
             else:
                 vector[token] = 1
         return vector
+
+    # To get continuous chunk of similar POS tags.
+    # E.g.  If two NN tags are consequetive, this method will merge and return
+    #       single NN with combined value.
+    #       It is helpful in detecting name of single person like John Cena,
+    #       Steve Jobs
+    # Input:
+    #       question(str) : question string
+    # Output:
+    #       (list): of chunks
 
     def getContinuousChunk(self,question):
         chunks = []
@@ -142,6 +212,14 @@ class ProcessedQuestion:
             chunks.append((entity["pos"]," ".join(entity["chunk"])))
         return chunks
 
+    # To get synonyms of word in order to improve query by using query
+    # expanision technique
+    # Input:
+    #       word(str) : Word token
+    # Output:
+    #       synonyms(list) : List of synonyms of given word
+
+
     def getSynonyms(word):
         synonyms = []
         for syn in wordnet.synsets(word):
@@ -149,6 +227,8 @@ class ProcessedQuestion:
                 w = l.name().lower()
                 synonyms.extend(w.split("_"))
         return list(set(synonyms))
+
+    # String representation of this class
 
     def __repr__(self):
         msg = "Q: " + self.question + "\n"
