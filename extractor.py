@@ -19,8 +19,10 @@ exp1 = "(before|after|earlier|later|ago)"
 exp2 = "(this|next|last)"
 iso = "\d+[/-]\d+[/-]\d+ \d+:\d+:\d+\.\d+"
 year = "((?<=\s)\d{4}|^\d{4})"
-
 date = "([012]?[0-9]|3[01])"
+
+regxp1 = "((\d+|(" + numbers + "[-\s]?)+) " + dmy + "s? " + exp1 + ")"
+regxp2 = "(" + exp2 + " (" + dmy + "|" + week_day + "|" + month + "))"
 regxp3 = "(" + date + " " + month + " " + year + ")"
 regxp4 = "(" + month + " " + date + "[th|st|rd]?[,]? " + year + ")"
 
