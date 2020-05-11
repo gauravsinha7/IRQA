@@ -1,13 +1,12 @@
 # Description : Loads and provide necessary methods to access and explore test
 #				dataset
-#
-#
 # Importing libraries
+
 import json
 
 class StanfordDataset:
 	def __init__(self):
-		trainingF = open('dataset/testingData.json','r')
+		trainingF = open('data/testingData.json','r')
 		trainingData = trainingF.readline()
 		trainingF.close()
 
