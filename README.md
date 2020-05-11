@@ -184,18 +184,19 @@ RESULT
         Dataset submitted with this project has following accuracy:
 
         Dataset Name    	| No of Question 	| No of Correct Answer | Accuracy
-        --------------------|-------------------|----------------------|----------
-        New_York_City		| 817				| 513				   | 62.79
-        Buddhism			| 610				| 428				   | 70.16
-        Queen_Victoria		| 680				| 378				   | 55.59
-        Modern_history		| 448				| 325				   | 72.54
-        Windows_8			| 202				| 148				   | 73.27
-        USB					| 235				| 208				   | 88.51
-        Marvel_Comics		| 123				| 77	               | 62.6
-        Mammal				| 88				| 59	               | 67.05
-        Alloy				| 96				| 65	               | 67.71
-        Rajasthan			| 119				| 82	               | 68.91
-        Anthropology		| 222				| 178	               | 80.18
+        	--------------------|-------------------|----------------------|----------
+        	New_York_City		| 817				| 513				   | 62.79
+        	Buddhism			| 610				| 428				   | 70.16
+        	Queen_Victoria		| 680				| 378				   | 55.59
+        	Modern_history		| 448				| 325				   | 72.54
+        	Windows_8			| 202				| 148				   | 73.27
+        	USB					| 235				| 208				   | 88.51
+        	Marvel_Comics		| 123				| 77	               | 62.6
+        	Mammal				| 88				| 59	               | 67.05
+        	Alloy				| 96				| 65	               | 67.71
+        	Rajasthan			| 119				| 82	               | 68.91
+        	Anthropology		| 222				| 178	               | 80.18
+
 
 
 REFERENCE
