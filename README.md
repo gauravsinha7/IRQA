@@ -181,7 +181,7 @@ RESULT
     --------------------------------
 
         Overall Average over entire data was 64% correct answer prediction.
-        data submitted with this project has following accuracy:
+        Data submitted with this project has following accuracy:
 </br>
 
 Dataset Name    	| No of Question 	| No of Correct Answer | Accuracy
