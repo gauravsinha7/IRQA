@@ -165,40 +165,37 @@ TEST
 		accuracy = No. of correct prediction/No. of Total Prediction
 
 
-        RESULT
-        ======
+RESULT
+======
 
-        	Result of Passage Retrieval
-        	---------------------------
-        	Accuracy of passage retrieval using TF-IDF was 69.69% when tested over 422
-        	articles of SQuAD dataset and approx 87599 questions cross domain.
+    Result of Passage Retrieval
+    ---------------------------
+        Accuracy of passage retrieval using TF-IDF was 69.69% when tested over 422
+        articles of SQuAD dataset and approx 87599 questions cross domain.
 
-        	After removing stopwords and using Porter Stemmer, this accuracy parameter
-        	improved to 82.49%.
+        After removing stopwords and using Porter Stemmer, this accuracy parameter
+        improved to 82.49%. On Further analysis, 94.23% of passage retrieval contains
+        the equivalant paragraph in top 3 returned paragraph.
 
-        	On Further analysis, 94.23% of passage retrieval contains the equivalant
-        	paragraph in top 3 returned paragraph.
+    Result of Question Answer Agent
+    --------------------------------
 
-        	Result of Question Answer System
-        	--------------------------------
+        Overall Average over entire dataset was 64% correct answer prediction.
+        Dataset submitted with this project has following accuracy:
 
-        	Overall Average over entire dataset was 64% correct answer prediction.
-        	Dataset submitted with this project has following accuracy:
-
-        	Dataset Name    	| No of Question 	| No of Correct Answer | Accuracy
-        	--------------------|-------------------|----------------------|----------
-        	New_York_City		| 817				| 513				   | 62.79
-        	Buddhism			| 610				| 428				   | 70.16
-        	Queen_Victoria		| 680				| 378				   | 55.59
-        	Modern_history		| 448				| 325				   | 72.54
-        	Windows_8			| 202				| 148				   | 73.27
-        	USB					| 235				| 208				   | 88.51
-        	Marvel_Comics		| 123				| 77	               | 62.6
-        	Mammal				| 88				| 59	               | 67.05
-        	Alloy				| 96				| 65	               | 67.71
-        	Rajasthan			| 119				| 82	               | 68.91
-        	Anthropology		| 222				| 178	               | 80.18
-
+        Dataset Name    	| No of Question 	| No of Correct Answer | Accuracy
+        --------------------|-------------------|----------------------|----------
+        New_York_City		| 817				| 513				   | 62.79
+        Buddhism			| 610				| 428				   | 70.16
+        Queen_Victoria		| 680				| 378				   | 55.59
+        Modern_history		| 448				| 325				   | 72.54
+        Windows_8			| 202				| 148				   | 73.27
+        USB					| 235				| 208				   | 88.51
+        Marvel_Comics		| 123				| 77	               | 62.6
+        Mammal				| 88				| 59	               | 67.05
+        Alloy				| 96				| 65	               | 67.71
+        Rajasthan			| 119				| 82	               | 68.91
+        Anthropology		| 222				| 178	               | 80.18
 
 
 REFERENCE
