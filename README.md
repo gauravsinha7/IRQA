@@ -1,10 +1,6 @@
 # IRQA: Information Retrieval based System for Question Answering
 
-IRQA is a simpler version of question answering
-system. It answers to the question asked by user in near real time using
-information retrieval and natural language processing technique. QA agent is
-able to based question from article of various
-domains with an accuracy of ~70%
+IRQA is a simpler version of the question answering system. It answers the question asked by the user in near real-time using information retrieval and natural language processing technique. QA agent is able to based question from the article of various domains with an accuracy of ~70%
 
 SYNOPSIS
 ========
